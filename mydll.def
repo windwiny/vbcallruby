@@ -1,0 +1,14 @@
+LIBRARY mydll
+
+EXPORTS
+
+vbrb_init
+vbrb_cleanup
+vbrb_eval_string
+t
+nt
+st
+ti
+ts
+encode
+
