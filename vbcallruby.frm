@@ -4,17 +4,26 @@ Begin VB.Form VbCallRuby
    ClientHeight    =   6930
    ClientLeft      =   60
    ClientTop       =   360
-   ClientWidth     =   7050
+   ClientWidth     =   7095
    LinkTopic       =   "Form1"
    ScaleHeight     =   6930
-   ScaleWidth      =   7050
+   ScaleWidth      =   7095
    StartUpPosition =   3  '´°¿ÚÈ±Ê¡
+   Begin VB.TextBox txtRbstr 
+      Height          =   1215
+      Left            =   120
+      MultiLine       =   -1  'True
+      TabIndex        =   8
+      Text            =   "vbcallruby.frx":0000
+      Top             =   5040
+      Width           =   6855
+   End
    Begin VB.CommandButton btnevalrubystring 
       Caption         =   "eval ruby string"
       Height          =   495
-      Left            =   3120
+      Left            =   3000
       TabIndex        =   7
-      Top             =   4440
+      Top             =   6360
       Width           =   2295
    End
    Begin VB.CommandButton btnencode 
@@ -169,15 +178,19 @@ Private Sub btnevalrubystring_Click()
 'On Error GoTo EERR
     
     Dim hh As String
-    hh = "f=File.open( 'c:/1.txt','a') ;f.puts  Time.now; f.close  "
+    Dim res As Integer
+    hh = txtRbstr.Text
     
-      vbrb_eval_string (hh)
+    res = vbrb_eval_string(hh)
    ' rb_eval_string (hh)
     
-    MsgBox "no error. see  C:\1.TXT"
+    If res = 0 Then
+        MsgBox "rb_eval_string  no error."
+    Else
+        MsgBox "rb_eval_string  return error", vbCritical
+    End If
     Exit Sub
 EERR:
     MsgBox "On Err end"
 
 End Sub
-  

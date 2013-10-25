@@ -3,7 +3,7 @@ Attribute VB_Name = "Module1"
 
 Public Declare Sub vbrb_init Lib "mydll" ()
 Public Declare Sub vbrb_cleanup Lib "mydll" ()
-Public Declare Sub vbrb_eval_string Lib "mydll" (ByVal ss As String)
+Public Declare Function vbrb_eval_string Lib "mydll" (ByVal ss As String) As Integer
 
 
 Public Declare Sub t Lib "mydll" ()

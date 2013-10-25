@@ -1,0 +1,3 @@
+>f = File.open( 'c:/1.txt','a')
+f.puts  Time.now 
+f.close  

@@ -17,9 +17,11 @@ __stdcall void vbrb_cleanup() {
 	ruby_cleanup(0);
 }
 
-__stdcall void vbrb_eval_string(char *rbstr) {
+__stdcall int vbrb_eval_string(char *rbstr) {
+	int error;
 	printf("rb_eval_string %s", rbstr);
-	rb_eval_string(rbstr);
+	rb_eval_string_protect(rbstr, &error);
+	return error;
 }
 
 
