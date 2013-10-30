@@ -4,6 +4,8 @@ EXPORTS
 
 vbrb_init
 vbrb_cleanup
+vbrb_setup
+vbrb_finalize
 vbrb_eval_string
 t
 nt

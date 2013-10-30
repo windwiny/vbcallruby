@@ -17,6 +17,14 @@ __stdcall void vbrb_cleanup() {
 	ruby_cleanup(0);
 }
 
+__stdcall int vbrb_setup() {
+	return ruby_setup();
+}
+
+__stdcall void vbrb_finalize() {
+	ruby_finalize();
+}
+
 __stdcall int vbrb_eval_string(char *rbstr) {
 	int error;
 	printf("rb_eval_string %s", rbstr);

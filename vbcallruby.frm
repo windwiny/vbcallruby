@@ -9,6 +9,22 @@ Begin VB.Form VbCallRuby
    ScaleHeight     =   6930
    ScaleWidth      =   7095
    StartUpPosition =   3  '´°¿ÚÈ±Ê¡
+   Begin VB.CommandButton btnfinalize 
+      Caption         =   "finalize"
+      Height          =   495
+      Left            =   5280
+      TabIndex        =   10
+      Top             =   3360
+      Width           =   1575
+   End
+   Begin VB.CommandButton btnsetup 
+      Caption         =   "setup"
+      Height          =   495
+      Left            =   5400
+      TabIndex        =   9
+      Top             =   2640
+      Width           =   1455
+   End
    Begin VB.TextBox txtRbstr 
       Height          =   1215
       Left            =   120
@@ -101,6 +117,16 @@ End Sub
 
 Private Sub cleanup()
     Call vbrb_cleanup
+End Sub
+
+Private Sub btnfinalize_Click()
+    vbrb_finalize
+End Sub
+
+Private Sub btnsetup_Click()
+    Dim stat As Long
+    stat = vbrb_setup
+    MsgBox "init " & CStr(stat)
 End Sub
 
 Private Sub Form_Load()
